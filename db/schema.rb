@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_154211) do
+ActiveRecord::Schema.define(version: 2018_11_28_183930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "shouts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "content_type"
-    t.integer "content_id"
+    t.string "content_type", null: false
+    t.integer "content_id", null: false
     t.index ["content_id", "content_type"], name: "index_shouts_on_content_id_and_content_type"
     t.index ["user_id"], name: "index_shouts_on_user_id"
   end
